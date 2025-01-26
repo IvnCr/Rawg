@@ -1,6 +1,6 @@
 // src/services/api.js
 
-const API_KEY = "TU_API_KEY"; // Reemplaza esto con tu clave de la API RAWG
+const API_KEY = import.meta.env.VITE_API_KEY;
 const BASE_URL = "https://api.rawg.io/api";
 
 /**
@@ -29,7 +29,8 @@ export const fetchFromAPI = async (endpoint, params = {}) => {
  * @returns {Promise<Object>} - Los datos de los videojuegos populares.
  */
 export const getPopularGames = async () => {
-    return fetchFromAPI("/games", { ordering: "-rating", page_size: 10 });
+    const data = await fetchFromAPI("/games", { ordering: "-rating", page_size: 10 });
+    return data.results || [];  // Asegúrate de devolver los juegos desde la propiedad 'results'
 };
 
 /**
