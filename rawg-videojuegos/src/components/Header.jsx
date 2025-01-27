@@ -3,7 +3,7 @@ import { Search, User } from "lucide-react";
 
 function Header() {
     return (
-        <header className="bg-gradient-to-r from-blue-700 to-purple-800 text-white shadow-lg">
+        <header className="bg-gradient-to-r from-red-600 to-purple-800 text-white shadow-lg">
             <div className="container mx-auto flex items-center justify-between px-6 py-4">
                 {/* Logo */}
                 <Link to="/" className="text-2xl font-extrabold tracking-tight">
