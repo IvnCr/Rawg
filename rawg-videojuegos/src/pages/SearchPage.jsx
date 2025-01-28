@@ -67,17 +67,17 @@ function SearchPage() {
             )}
 
             {/* Resultados */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-5">
                 {results.map((game) => (
                     <div
                         key={game.id}
-                        className="bg-gray-700 rounded-lg shadow-2xl hover:scale-105 transition-transform duration-300 ease-in-out"
+                        className="bg-gray-700 rounded-lg shadow-2xl shadow-inset-games hover:brightness-110 hover:scale-105 transition-transform duration-300 ease-in-out"
                     >
                         <Link to={`/game/${game.id}`}>
                             <img
                                 src={game.background_image}
                                 alt={game.name}
-                                className="rounded-t-lg w-full h-48 object-cover"
+                                className="rounded-t-lg w-full h-48 object-cover "
                             />
                             <div className="p-4">
                                 <h2 className="text-xl font-semibold">{game.name}</h2>

@@ -15,20 +15,21 @@ function App() {
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
-      <Header />
-      <main className="flex-grow p-4" >
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/search" element={<SearchPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/games" element={<AllGamesPage />} />
-        <Route path="/games/:id" element={<GameDetailsPage />} />
-      </Routes>
-      </main>
-    </div>
-    <Footer />
+        <Header />
+        <main className="flex-grow p-4">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/search" element={<SearchPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/games/:id" element={<GameDetailsPage />} />
+            <Route path="/games" element={<AllGamesPage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </Router>
   );
 }
+
 
 export default App;
