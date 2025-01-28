@@ -25,8 +25,8 @@ function App() {
         <Route path="/games/:id" element={<GameDetailsPage />} />
       </Routes>
       </main>
-      <Footer />
     </div>
+    <Footer />
     </Router>
   );
 }

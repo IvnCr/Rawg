@@ -27,17 +27,15 @@ const PopularGames = () => {
     if (error) return <p>Error: {error}</p>;
 
     return (
-        <div>
-            <h1>Juegos Populares</h1>
-            <ul>
-                {games.map((game) => (
-                    <li key={game.id}>
-                        <h3>{game.name}</h3>
-                        <p>Rating: {game.rating}</p>
-                    </li>
-                ))}
-            </ul>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-6">
+      {games.map((game) => (
+        <div key={game.id} className="bg-gray-800 text-white p-4 rounded-lg shadow-lg">
+          <img src={game.background_image} alt={game.name} className="w-full h-40 object-cover rounded-md" />
+          <h3 className="mt-2 text-lg font-bold">{game.name}</h3>
+          <p className="text-sm text-gray-400">⭐ {game.rating}</p>
         </div>
+      ))}
+    </div>
     );
 };
 
