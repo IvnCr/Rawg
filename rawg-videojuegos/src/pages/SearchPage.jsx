@@ -26,7 +26,7 @@ function SearchPage() {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-gray-800 to-gray-900 text-white p-8">
+        <div className="min-h-screen bg-gradient-to-b from-pink-800 to-gray-900 text-white p-8">
             {/* Encabezado */}
             <h1 className="text-5xl font-extrabold text-center text-transparent bg-clip-text text-yellow-50 mb-10 mt-11">
                 Buscar Videojuegos
@@ -34,13 +34,13 @@ function SearchPage() {
 
             {/* Barra de búsqueda */}
             <div className="flex justify-center mb-8">
-                <div className="flex w-full max-w-4xl bg-gray-700 p-4 rounded-lg shadow-2xl hover:shadow-lg transition-all duration-300 ease-in-out">
+                <div className="flex w-full max-w-4xl bg-pink-700 shadow-outset-yellow p-4 rounded-lg shadow-2xl hover:scale-105 transition-all duration-1000 ease-in-out ">
                     <input
                         type="text"
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
                         placeholder="Escribe el nombre del videojuego..."
-                        className="flex-grow p-3 bg-transparent text-white border-2 border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                        className="flex-grow p-3 bg-transparent text-white border-2  border-yellow-100 rounded-lg focus:shadow-inner focus:shadow-inset-yellow transition-all"
                     />
                     <button
                         onClick={handleSearch}

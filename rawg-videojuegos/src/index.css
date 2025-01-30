@@ -76,3 +76,13 @@ button:focus-visible {
   .shadow-inset-games {
     box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.25);
   }
+  .shadow-inset-yellow {
+    box-shadow: inset 0 0 20px rgba(245, 216, 123, 0.542);
+  }
+  .shadow-outset-yellow {
+    box-shadow:  0 0 20px rgba(245, 216, 123, 0.542);
+  }
+  .grayPink{
+    background-color: #370b2a;
+  }
+

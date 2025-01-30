@@ -1,10 +1,9 @@
-// src/components/GameDetails.jsx
 import React, { useEffect, useState } from "react";
 import { getGameDetails } from "../services/api";
 import { useParams } from "react-router-dom";
 
 const GameDetails = () => {
-    const { id } = useParams(); // Obtiene el ID de la URL
+    const { id } = useParams();
     const [game, setGame] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -12,7 +11,7 @@ const GameDetails = () => {
     useEffect(() => {
         const fetchDetails = async () => {
             try {
-                const data = await getGameDetails(id); // Llamada a la API
+                const data = await getGameDetails(id); 
                 setGame(data);
             } catch (err) {
                 setError(err.message);

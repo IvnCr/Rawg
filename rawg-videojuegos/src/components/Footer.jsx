@@ -2,11 +2,9 @@ import { FaTiktok, FaTwitter, FaInstagram } from "react-icons/fa";
 
 function Footer() {
     return (
-        <footer className="bg-gradient-to-r from-[#212121] to-[#3498db] text-gray-300 py-8 left-0 right-0  w-full mt-auto ">
+        <footer className="bg-gradient-to-r from-[#212121] to-pink-700 text-gray-300 py-8 left-0 right-0 rounded-xl  w-full mt-auto shadow-outset-yellow">
             <div className="container mx-auto px-4 lg:px-16">
-                {/* Top Section */}
-                <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start border-b border-gray-700 pb-6 mb-6">
-                    {/* Logo Section */}
+                <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start border-b border-yellow-100 pb-6 mb-6">
                     <div className="text-center lg:text-left mb-6 lg:mb-0">
                         <div className="flex items-center justify-center lg:justify-start space-x-2">
                             <img 
@@ -14,17 +12,16 @@ function Footer() {
                                 alt="RAWG Logo" 
                                 className="w-12 h-12 object-contain"
                             />
-                            <h2 className="text-2xl font-bold text-white">RAWG Videojuegos</h2>
+                            <h2 className="text-2xl font-bold text-white hover:text-yellow-100 transition">RAWG Videojuegos</h2>
                         </div>
                         <p className="mt-2">&copy; 2025 Todos los derechos reservados.</p>
                     </div>
                     <nav className="space-y-2 lg:space-y-0 lg:space-x-6">
-                        <a href="/privacy" className="text-white hover:text-yellow-400 transition">Política de Privacidad</a>
-                        <a href="/terms" className="text-white hover:text-yellow-400 transition">Términos y Condiciones</a>
+                        <a href="/privacy" className="text-white hover:text-yellow-100 transition">Política de Privacidad</a>
+                        <a href="/terms" className="text-white hover:text-yellow-100 transition">Términos y Condiciones</a>
                     </nav>
                 </div>
 
-                {/* Social Media Section */}
                 <div className="text-center">
                     <p className="mb-4">Síguenos en nuestras redes sociales:</p>
                     <div className="flex justify-center space-x-6">
@@ -33,7 +30,7 @@ function Footer() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="TikTok"
-                            className="text-gray-300 hover:text-yellow-400 text-xl transition"
+                            className="text-gray-300 hover:text-yellow-100 text-xl transition"
                         >
                             <FaTiktok />
                         </a>
@@ -42,7 +39,7 @@ function Footer() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Twitter"
-                            className="text-gray-300 hover:text-yellow-400 text-xl transition"
+                            className="text-gray-300 hover:text-yellow-100 text-xl transition"
                         >
                             <FaTwitter />
                         </a>
@@ -51,7 +48,7 @@ function Footer() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Instagram"
-                            className="text-gray-300 hover:text-yellow-400 text-xl transition"
+                            className="text-gray-300 hover:text-yellow-100 text-xl transition"
                         >
                             <FaInstagram />
                         </a>

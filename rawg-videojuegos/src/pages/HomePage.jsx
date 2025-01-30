@@ -34,16 +34,13 @@ function HomePage() {
             });
     }, [currentPage]);
 
-    // Cambiar la imagen de fondo automáticamente cada 5 segundos
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-        }, 5000); // Cambiar cada 5 segundos
+        }, 5000); 
 
-        // Limpiar el intervalo cuando el componente se desmonte
         return () => clearInterval(interval);
-    }, []); // Este useEffect se ejecuta solo una vez al montar el componente
-
+    }, []);
     if (loading) {
         return <div className="text-center text-white text-lg mt-10">Cargando...</div>;
     }
@@ -55,36 +52,31 @@ function HomePage() {
     if (!games.length) {
         return <div className="text-center text-gray-400 text-lg mt-10">No se encontraron videojuegos populares.</div>;
     }
-
-    // Función para manejar el clic en "Cargar más juegos"
     const handleLoadMore = () => {
         setCurrentPage((prevPage) => prevPage + 1);
     };
 
     return (
-        <div className="bg-gray-900 min-h-screen text-white mt-5">
-            <div className="relative bg-black bg-opacity-60 p-6 rounded-lg text-center">
-                {/* Imagen de fondo solo en este div */}
+        <div className="grayPink min-h-screen w-full text-white mt-5 shadow-outset-yellow rounded-xl">
+            <div className="relative bg-black bg-opacity-60 p-6 rounded-lg text-center ">
                 <img
                     src={images[currentImageIndex]}
                     alt="Fondo de juegos"
                     className="absolute top-0 left-0 w-full h-full object-cover opacity-30"
                 />
 
-                {/* Contenido encima de la imagen */}
                 <div className="relative z-10 mt-10">
                     <h1 className="text-4xl font-bold text-white">Descubre los Mejores Videojuegos</h1>
                     <p className="text-lg mt-2">Explora y encuentra información detallada sobre los títulos más populares</p>
                     <Link to="/search">
-                        <button className="mt-4 px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-800 transition">
+                        <button className="mt-4 px-6 py-2 bg-pink-600 text-white rounded-lg hover:bg-pink-900 hover:text-yellow-100 hover:border-yellow-100 transition">
                             Explorar Juegos
                         </button>
                     </Link>
                 </div>
             </div>
 
-            {/* Carrusel de Juegos Populares */}
-            <div className="mt-12 ml-5 mr-5 px-6 bg-gray-800 rounded-lg py-8 shadow-inset">
+            <div className="mt-12 ml-5 mr-5 px-6 bg-pink-950 rounded-lg py-8  shadow-inset-yellow">
                 <h2 className="text-3xl font-bold text-center text-white mb-6">
                     <FaGamepad className="inline mr-2" /> Juegos Populares
                 </h2>
@@ -93,14 +85,14 @@ function HomePage() {
                         {games.map((game) => (
                             <div key={game.id} className="w-60 flex-shrink-0 transform transition duration-700 hover:scale-105 hover:shadow-2xl">
                                 <Link to={`/game/${game.id}`}>
-                                    <div className="bg-gray-700 p-4 rounded-lg shadow-lg shadow-inset-games hover:brightness-110">
+                                    <div className="bg-pink-900 p-4 rounded-lg shadow-lg shadow-inset-yellow hover:brightness-110">
                                         <img
                                             src={game.background_image || "https://via.placeholder.com/300x200?text=Imagen+no+disponible"}
                                             alt={game.name}
                                             className="rounded-lg w-full h-40 object-cover transition-transform transform"
                                         />
-                                        <h3 className="mt-3 text-lg font-semibold truncate overflow-hidden whitespace-nowrap">{game.name || "Juego sin nombre"}</h3>
-                                        <p className="text-gray-400">⭐ {game.rating || "No disponible"}</p>
+                                        <h3 className="text-white hover:text-yellow-100 mt-3 text-lg font-semibold truncate overflow-hidden whitespace-nowrap">{game.name || "Juego sin nombre"}</h3>
+                                        <p className="text-white">⭐ {game.rating || "No disponible"}</p>
                                     </div>
                                 </Link>
                             </div>
@@ -109,22 +101,23 @@ function HomePage() {
                 </div>
             </div>
 
-            {/* Sección de Novedades */}
-            <div className="mt-12 ml-5 mr-5 px-6 bg-gray-800 rounded-lg py-8 shadow-inset">
+            <div className="my-6 mx-5 border-t-8 border-pink-900 rounded shadow-outset-yellow"></div>
+
+            <div className="mt-12 ml-5 mr-5 px-6 bg-pink-950 rounded-lg py-8 shadow-inset-yellow">
                 <h2 className="text-3xl font-bold text-center text-white mb-6">🔥 Novedades</h2>
                 <div className="relative">
                     <div className="flex overflow-x-auto space-x-6 scrollbar-hide p-4">
                         {games.slice(0, 3).map((game) => (
                             <div key={game.id} className="w-64 flex-shrink-0 transform transition duration-700 hover:scale-105">
                                 <Link to={`/game/${game.id}`}>
-                                    <div className="bg-gray-700 p-4 rounded-lg shadow-lg shadow-inset-games hover:brightness-110">
+                                    <div className="bg-pink-900 p-4 rounded-lg shadow-lg shadow-inset-games hover:brightness-110">
                                         <img
                                             src={game.background_image || "https://via.placeholder.com/300x200?text=Imagen+no+disponible"}
                                             alt={game.name}
                                             className="rounded-lg w-full h-40 object-cover"
                                         />
-                                        <h3 className="mt-3 text-lg font-semibold truncate overflow-hidden whitespace-nowrap">{game.name || "Juego sin nombre"}</h3>
-                                        <p className="text-gray-400">⭐ {game.rating || "No disponible"}</p>
+                                        <h3 className="text-white hover:text-yellow-100 mt-3 text-lg font-semibold truncate overflow-hidden whitespace-nowrap">{game.name || "Juego sin nombre"}</h3>
+                                        <p className="text-white">⭐ {game.rating || "No disponible"}</p>
                                     </div>
                                 </Link>
                             </div>
@@ -133,21 +126,19 @@ function HomePage() {
                 </div>
             </div>
 
-            {/* Banner Promocional */}
-            <div className="bg-blue-600 text-white py-4 text-center mt-12 ml-5 mr-5 rounded-lg">
+            <div className="bg-pink-600 text-white py-4 text-center mt-12 ml-5 mr-5 rounded-lg">
                 <p className="text-xl font-bold">¡Gran Oferta! 50% de descuento en juegos seleccionados. ¡No te lo pierdas!</p>
                 <Link to="/promotions">
-                    <button className="mt-4 px-6 py-2 bg-white text-blue-600 rounded-lg hover:bg-gray-200 transition">
+                    <button className="mt-4 px-6 py-2 bg-white text-pink-600 rounded-lg hover:bg-pink-900 hover:border-yellow-100 hover:text-yellow-100 transition">
                         Ver Ofertas <FaArrowRight className="inline ml-2" />
                     </button>
                 </Link>
             </div>
 
-            {/* Cargar Más Juegos */}
             <div className="text-center mt-12">
                 <button
                     onClick={handleLoadMore}
-                    className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition mb-3"
+                    className="px-6 py-2 bg-white text-pink-600 rounded-lg  hover:bg-pink-900 hover:border-yellow-100 hover:text-yellow-100 transition mb-3"
                 >
                     Cargar Más Juegos
                 </button>

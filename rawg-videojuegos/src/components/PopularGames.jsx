@@ -1,4 +1,3 @@
-// src/components/PopularGames.jsx
 import React, { useEffect, useState } from "react";
 import { getPopularGames } from "../services/api";
 

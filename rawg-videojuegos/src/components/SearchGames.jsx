@@ -1,10 +1,9 @@
-// src/components/SearchGames.jsx
 import React, { useState } from "react";
 import { searchGames } from "../services/api";
 
 const SearchGames = ({ className }) => {
-    const [query, setQuery] = useState(""); // Estado para la búsqueda
-    const [results, setResults] = useState([]); // Juegos encontrados
+    const [query, setQuery] = useState(""); 
+    const [results, setResults] = useState([]); 
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -14,8 +13,8 @@ const SearchGames = ({ className }) => {
         setError(null);
 
         try {
-            const data = await searchGames(query); // Llamada a la API
-            setResults(data.results); // Guardamos los resultados
+            const data = await searchGames(query); 
+            setResults(data.results); 
         } catch (err) {
             setError(err.message);
         } finally {
