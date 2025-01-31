@@ -23,7 +23,7 @@ const PromotionsPage = () => {
                 {promotions.length > 0 ? (
                     promotions.map((game) => (
                         <div key={game.id} className="w-60 flex-shrink-0 transform transition duration-700 hover:scale-105 hover:shadow-2xl">
-                            <Link to={`/game/${game.id}`}>
+                            <Link to={`/games/${game.id}`}>
                                 <div className="bg-pink-900 p-4 rounded-lg shadow-lg shadow-inset-yellow hover:brightness-110">
                                     <img
                                         src={game.background_image || "https://via.placeholder.com/300x200?text=Imagen+no+disponible"}

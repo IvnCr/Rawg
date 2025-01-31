@@ -71,7 +71,7 @@ function SearchPage() {
                         key={game.id}
                         className="bg-pink-900 p-4 rounded-lg shadow-lg shadow-inset-yellow  hover:brightness-110"
                     >
-                        <Link to={`/game/${game.id}`}>
+                        <Link to={`/games/${game.id}`}>
                             <img
                                 src={game.background_image}
                                 alt={game.name}

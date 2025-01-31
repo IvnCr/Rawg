@@ -23,14 +23,14 @@ function Footer() {
                 </div>
 
                 <div className="text-center">
-                    <p className="mb-4">Síguenos en nuestras redes sociales:</p>
+                    <p className="mb-4 text-white">Síguenos en nuestras redes sociales:</p>
                     <div className="flex justify-center space-x-6">
                         <a
                             href="https://www.tiktok.com/@ivvn.cr?_t=ZN-8tRfgFQxYF4&_r=1"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="TikTok"
-                            className="text-gray-300 hover:text-yellow-100 text-xl transition"
+                            className="text-white hover:text-yellow-100 text-xl transition"
                         >
                             <FaTiktok />
                         </a>
@@ -39,7 +39,7 @@ function Footer() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Twitter"
-                            className="text-gray-300 hover:text-yellow-100 text-xl transition"
+                            className="text-white hover:text-yellow-100 text-xl transition"
                         >
                             <FaTwitter />
                         </a>
@@ -48,7 +48,7 @@ function Footer() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Instagram"
-                            className="text-gray-300 hover:text-yellow-100 text-xl transition"
+                            className="text-white hover:text-yellow-100 text-xl transition"
                         >
                             <FaInstagram />
                         </a>

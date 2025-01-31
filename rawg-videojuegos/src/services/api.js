@@ -30,9 +30,27 @@ export const searchGames = async (query) => {
 };
 
 // Función para obtener los detalles de un videojuego
-export const getGameDetails = async (id) => {
-    return fetchFromAPI(`/games/${id}`);
+const fetchGameDetails = async () => {
+    try {
+        const data = await getGameDetails(id);
+        setGame(data);
+    } catch (error) {
+        console.error("Error cargando los detalles del juego:", error);
+    }
 };
+export const getGameDetails = async (gameId) => {
+    try {
+        const response = await fetch(`${BASE_URL}/games/${gameId}?key=${API_KEY}`);
+        if (!response.ok) {
+            throw new Error("No se pudieron obtener los detalles del juego.");
+        }
+        return await response.json();
+    } catch (error) {
+        console.error("Error en getGameDetails:", error);
+        throw error;
+    }
+};
+
 
 // Función para obtener juegos en promoción
 export const getPromotions = async () => {

@@ -17,6 +17,7 @@ function HomePage() {
         "./images/fondoVideojuego2.webp",
         "./images/fondoVideojuego3.webp",
         "./images/fondoVideojuego4.webp",
+        "./images/fondoVideojuego5.webp",
     ];
 
     const [currentImageIndex, setCurrentImageIndex] = useState(0);  // Aquí se agrega el estado
@@ -60,12 +61,12 @@ function HomePage() {
     };
 
     return (
-        <div className="grayPink min-h-screen w-full text-white mt-5 shadow-outset-yellow rounded-xl">
+        <div className="grayPink min-h-screen w-full text-white mt-5 shadow-outset-yellow rounded-xl z-50">
             <div className="relative bg-black bg-opacity-60 p-6 rounded-lg text-center ">
                 <img
                     src={images[currentImageIndex]}
                     alt="Fondo de juegos"
-                    className="absolute top-0 left-0 w-full h-full object-cover opacity-30"
+                    className="absolute top-0 left-0 w-full h-full object-cover opacity-50"
                 />
 
                 <div className="relative z-10 mt-10">
@@ -88,7 +89,7 @@ function HomePage() {
                     {/* Tu contenido aquí */}
                         {games.map((game) => (
                             <div key={game.id} className="w-60 flex-shrink-0 transform transition duration-700 hover:scale-105 hover:shadow-2xl">
-                                <Link to={`/game/${game.id}`}>
+                                <Link to={`/games/${game.id}`}>
                                     <div className="bg-pink-900 p-4 rounded-lg shadow-lg shadow-inset-yellow hover:brightness-110">
                                         <img
                                             src={game.background_image || "https://via.placeholder.com/300x200?text=Imagen+no+disponible"}
@@ -113,7 +114,7 @@ function HomePage() {
                     <div className="flex overflow-x-auto space-x-6 scrollbar-hide p-4">
                         {games.slice(0, 3).map((game) => (
                             <div key={game.id} className="w-64 flex-shrink-0 transform transition duration-700 hover:scale-105">
-                                <Link to={`/game/${game.id}`}>
+                                <Link to={`/games/${game.id}`}>
                                     <div className="bg-pink-900 p-4 rounded-lg shadow-lg shadow-inset-games hover:brightness-110">
                                         <img
                                             src={game.background_image || "https://via.placeholder.com/300x200?text=Imagen+no+disponible"}
