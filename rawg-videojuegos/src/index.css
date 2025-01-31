@@ -104,7 +104,7 @@ button:focus-visible {
 
 /* Color de fondo del track */
 .scrollbar-custom::-webkit-scrollbar-track {
-  background: #4B1F45;  /* Color rosa oscuro similar a pink-950 */
+  background: #320f2c;  /* Color rosa oscuro similar a pink-950 */
   border-radius: 10px;   /* Bordes redondeados */
 }
 
@@ -116,7 +116,7 @@ button:focus-visible {
 
 /* Color del thumb cuando el usuario pasa el mouse */
 .scrollbar-custom::-webkit-scrollbar-thumb:hover {
-  background: #ffdea5;  /* Un tono más claro de amarillo (hover) */
+  background: #ffe9c3;  /* Un tono más claro de amarillo (hover) */
 }
 
 /* Opcional: al pasar el mouse sobre el track, puedes agregar un efecto sutil */

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Button from "../components/Button";
+
 
 function ContactPage() {
     const [formData, setFormData] = useState({
@@ -20,11 +22,11 @@ function ContactPage() {
     };
 
     return (
-        <div className="p-6 bg-gradient-to-r from-[#212121] to-[#3498db] rounded-lg shadow-lg max-w-3xl mx-auto mt-10">
+        <div className="p-6 bg-gradient-to-r shadow-outset-yellow from-[#212121] to-pink-700 rounded-lg shadow-lg max-w-3xl mx-auto mt-10">
             <h1 className="text-4xl font-extrabold text-white mb-6 text-center">Contacto</h1>
             <p className="text-lg text-white mb-4 text-center">
                 ¿Tienes dudas o sugerencias? ¡Estamos aquí para ayudarte! Escríbenos a{' '}
-                <a href="mailto:icr0015@alu.medac.es" className="text-yellow-300 underline">
+                <a href="mailto:icr0015@alu.medac.es" className="text-white underline hover:text-yellow-100 transition duration-700">
                     icr0015@alu.medac.es
                 </a>
             </p>
@@ -40,7 +42,7 @@ function ContactPage() {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full p-3 mt-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-400"
+                        className="w-full p-3 mt-2 border-2 border-yellow-100 rounded-md focus:ring-2 focus:ring-yellow-100"
                         placeholder="Tu nombre completo"
                         required
                     />
@@ -56,7 +58,7 @@ function ContactPage() {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full p-3 mt-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-400"
+                        className="w-full p-3 mt-2 border-2 border-yellow-100 rounded-md focus:ring-2 focus:ring-yellow-100"
                         placeholder="Tu correo electrónico"
                         required
                     />
@@ -71,19 +73,19 @@ function ContactPage() {
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
-                        className="w-full p-3 mt-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-400"
+                        className="w-full p-3 mt-2 border-2 border-yellow-100 rounded-md focus:ring-2 focus:ring-yellow-100"
                         rows="4"
                         placeholder="Escribe tu mensaje aquí"
                         required
                     />
                 </div>
 
-                <button
+                <Button
                     type="submit"
-                    className="w-full py-3 bg-yellow-400 text-white font-bold rounded-md hover:bg-yellow-500 transition duration-300"
+                    className="w-full py-3"
                 >
                     Enviar mensaje
-                </button>
+                </Button>
             </form>
         </div>
     );

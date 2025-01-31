@@ -16,6 +16,7 @@ function HomePage() {
         "./images/fondoVideojuego.jpg",
         "./images/fondoVideojuego2.webp",
         "./images/fondoVideojuego3.webp",
+        "./images/fondoVideojuego4.webp",
     ];
 
     const [currentImageIndex, setCurrentImageIndex] = useState(0);  // Aquí se agrega el estado
@@ -39,7 +40,7 @@ function HomePage() {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-        }, 5000);
+        }, 4000);
 
         return () => clearInterval(interval);
     }, []);
@@ -129,7 +130,7 @@ function HomePage() {
                 </div>
             </div>
 
-            <div className="bg-pink-600 text-white py-4 text-center mt-12 ml-5 mr-5 rounded-lg">
+            <div className="bg-pink-600 text-white shadow-outset-yellow py-4 text-center mt-12 ml-5 mr-5 rounded-lg">
                 <p className="text-xl font-bold">¡Gran Oferta! 50% de descuento en juegos seleccionados. ¡No te lo pierdas!</p>
                 <Link to="/promotions">
                     <Button className="mt-5">
@@ -139,7 +140,7 @@ function HomePage() {
             </div>
 
             <div className="text-center mt-12">
-                <Button className="mb-5" onClick={handleLoadMore}>Cargar Más Juegos</Button>
+                <Button className="mb-8" onClick={handleLoadMore}>Cargar Más Juegos</Button>
             </div>
         </div>
     );
