@@ -9,6 +9,7 @@ import SearchPage from "./pages/SearchPage";
 import ContactPage from "./pages/ContactPage";
 import AllGamesPage from "./pages/AllGamesPage";
 import GameDetailsPage from "./pages/GameDetails";
+import PromotionPage from "./pages/PromotionPage";
 import "./App.css";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/games/:id" element={<GameDetailsPage />} />
             <Route path="/games" element={<AllGamesPage />} />
+            <Route path="/promotions" element={<PromotionPage />} />
           </Routes>
         </main>
         <Footer />

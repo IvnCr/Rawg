@@ -2,6 +2,7 @@ import { useState } from "react";
 import { searchGames } from "../services/api";
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa"; 
+import Button from "../components/Button";
 
 function SearchPage() {
     const [query, setQuery] = useState("");
@@ -26,15 +27,15 @@ function SearchPage() {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-pink-800 to-gray-900 text-white p-8">
+        <div className="min-h-screen grayPink text-white p-8 shadow-outset-yellow rounded-xl">
             {/* Encabezado */}
             <h1 className="text-5xl font-extrabold text-center text-transparent bg-clip-text text-yellow-50 mb-10 mt-11">
                 Buscar Videojuegos
             </h1>
 
             {/* Barra de búsqueda */}
-            <div className="flex justify-center mb-8">
-                <div className="flex w-full max-w-4xl bg-pink-700 shadow-outset-yellow p-4 rounded-lg shadow-2xl hover:scale-105 transition-all duration-1000 ease-in-out ">
+            <div className="flex justify-center mb-8 ">
+                <div className="flex w-full max-w-4xl bg-pink-600 shadow-outset-yellow p-4 rounded-lg shadow-2xl hover:scale-105 transition-all duration-1000 ease-in-out ">
                     <input
                         type="text"
                         value={query}
@@ -42,12 +43,9 @@ function SearchPage() {
                         placeholder="Escribe el nombre del videojuego..."
                         className="flex-grow p-3 bg-transparent text-white border-2  border-yellow-100 rounded-lg focus:shadow-inner focus:shadow-inset-yellow transition-all"
                     />
-                    <button
-                        onClick={handleSearch}
-                        className="ml-4 px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow-md hover:from-blue-600 hover:to-blue-700 focus:outline-none transition duration-300 ease-in-out"
-                    >
+                    <Button className="ml-4 px-6 py-3" onClick={handleSearch}>
                         <FaSearch className="inline-block mr-2" /> Buscar
-                    </button>
+                    </Button>
                 </div>
             </div>
 
@@ -71,7 +69,7 @@ function SearchPage() {
                 {results.map((game) => (
                     <div
                         key={game.id}
-                        className="bg-gray-700 rounded-lg shadow-2xl shadow-inset-games hover:brightness-110 hover:scale-105 transition-transform duration-300 ease-in-out"
+                        className="bg-pink-900 p-4 rounded-lg shadow-lg shadow-inset-yellow  hover:brightness-110"
                     >
                         <Link to={`/game/${game.id}`}>
                             <img
@@ -80,8 +78,8 @@ function SearchPage() {
                                 className="rounded-t-lg w-full h-48 object-cover "
                             />
                             <div className="p-4">
-                                <h2 className="text-xl font-semibold">{game.name}</h2>
-                                <p className="text-gray-400">⭐ {game.rating}</p>
+                                <h2 className="text-white text-xl font-semibold">{game.name}</h2>
+                                <p className="text-white">⭐ {game.rating}</p>
                             </div>
                         </Link>
                     </div>

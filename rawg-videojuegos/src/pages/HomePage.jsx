@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getPopularGames } from "../services/api";
+import PromotionBanner from "../components/PromotionBanner";
+import Button from "../components/Button";
 import { FaGamepad, FaStar, FaArrowRight } from "react-icons/fa";
 
 function HomePage() {
@@ -37,7 +39,7 @@ function HomePage() {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-        }, 5000); 
+        }, 5000);
 
         return () => clearInterval(interval);
     }, []);
@@ -69,9 +71,9 @@ function HomePage() {
                     <h1 className="text-4xl font-bold text-white">Descubre los Mejores Videojuegos</h1>
                     <p className="text-lg mt-2">Explora y encuentra información detallada sobre los títulos más populares</p>
                     <Link to="/search">
-                        <button className="mt-4 px-6 py-2 bg-pink-600 text-white rounded-lg hover:bg-pink-900 hover:text-yellow-100 hover:border-yellow-100 transition">
+                        <Button className="mt-5">
                             Explorar Juegos
-                        </button>
+                        </Button>
                     </Link>
                 </div>
             </div>
@@ -81,7 +83,8 @@ function HomePage() {
                     <FaGamepad className="inline mr-2" /> Juegos Populares
                 </h2>
                 <div className="relative">
-                    <div className="flex overflow-x-auto space-x-6 scrollbar-hide p-4">
+                <div className="flex overflow-x-auto space-x-6  scrollbar-hide p-4 scrollbar-custom">
+                    {/* Tu contenido aquí */}
                         {games.map((game) => (
                             <div key={game.id} className="w-60 flex-shrink-0 transform transition duration-700 hover:scale-105 hover:shadow-2xl">
                                 <Link to={`/game/${game.id}`}>
@@ -129,19 +132,14 @@ function HomePage() {
             <div className="bg-pink-600 text-white py-4 text-center mt-12 ml-5 mr-5 rounded-lg">
                 <p className="text-xl font-bold">¡Gran Oferta! 50% de descuento en juegos seleccionados. ¡No te lo pierdas!</p>
                 <Link to="/promotions">
-                    <button className="mt-4 px-6 py-2 bg-white text-pink-600 rounded-lg hover:bg-pink-900 hover:border-yellow-100 hover:text-yellow-100 transition">
+                    <Button className="mt-5">
                         Ver Ofertas <FaArrowRight className="inline ml-2" />
-                    </button>
+                    </Button>
                 </Link>
             </div>
 
             <div className="text-center mt-12">
-                <button
-                    onClick={handleLoadMore}
-                    className="px-6 py-2 bg-white text-pink-600 rounded-lg  hover:bg-pink-900 hover:border-yellow-100 hover:text-yellow-100 transition mb-3"
-                >
-                    Cargar Más Juegos
-                </button>
+                <Button className="mb-5" onClick={handleLoadMore}>Cargar Más Juegos</Button>
             </div>
         </div>
     );

@@ -33,3 +33,8 @@ export const searchGames = async (query) => {
 export const getGameDetails = async (id) => {
     return fetchFromAPI(`/games/${id}`);
 };
+
+// Función para obtener juegos en promoción
+export const getPromotions = async () => {
+    return fetchFromAPI("/games", { ordering: "-metacritic", page_size: 10 });
+};
