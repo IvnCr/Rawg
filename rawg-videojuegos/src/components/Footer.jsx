@@ -2,7 +2,7 @@ import { FaTiktok, FaTwitter, FaInstagram } from "react-icons/fa";
 
 function Footer() {
     return (
-        <footer className="bg-gradient-to-r from-[#212121] to-pink-700 text-gray-300 py-8 left-0 right-0 rounded-xl  w-full mt-auto shadow-outset-yellow">
+        <footer className="bg-gradient-to-r from-[#212121] to-pink-700 text-gray-300 py-8 left-0 right-0 rounded-xl shadow-outset-pink w-full mt-auto bottom-0">
             <div className="container mx-auto px-4 lg:px-16">
                 <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start border-b border-yellow-100 pb-6 mb-6">
                     <div className="text-center lg:text-left mb-6 lg:mb-0">

@@ -61,7 +61,7 @@ function HomePage() {
     };
 
     return (
-        <div className="grayPink min-h-screen w-full text-white mt-5 shadow-outset-yellow rounded-xl z-50">
+        <div className="grayPink min-h-screen w-full text-white mt-5 rounded-xl z-50">
             <div className="relative bg-black bg-opacity-60 p-6 rounded-lg text-center ">
                 <img
                     src={images[currentImageIndex]}

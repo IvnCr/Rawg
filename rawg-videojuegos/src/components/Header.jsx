@@ -7,7 +7,7 @@ function Header() {
     const [menuOpen, setMenuOpen] = useState(false); 
 
     return (
-        <header className="fixed top-0 left-0 w-full bg-gradient-to-r from-[#212121] to-pink-700 text-white shadow-lg z-50 shadow-outset-yellow">
+        <header className="fixed top-0 left-0 w-full bg-gradient-to-r from-[#212121] to-pink-700 text-white shadow-lg z-50 shadow-outset-pink">
             <div className="container mx-auto flex items-center justify-between px-6 py-4">
                 <Link to="/" className="text-2xl font-extrabold tracking-tight flex items-center hover:scale-110 transition-transform duration-300">
                     <img src="/logo.png" alt="Logo de RAWG" className="h-11 mr-2" />

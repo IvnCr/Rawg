@@ -91,6 +91,9 @@ button:focus-visible {
 .shadow-outset-yellow {
   box-shadow: 0 0 20px rgba(245, 216, 123, 0.542);
 }
+.shadow-outset-pink {
+  box-shadow: 0 0 20px rgba(250, 23, 152, 0.542);
+}
 
 .grayPink {
   background-color: #370b2a;

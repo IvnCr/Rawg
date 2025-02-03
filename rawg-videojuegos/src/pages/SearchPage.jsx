@@ -27,7 +27,7 @@ function SearchPage() {
     };
 
     return (
-        <div className="min-h-screen grayPink text-white p-8 shadow-outset-yellow rounded-xl">
+        <div className="min-h-screen grayPink text-white p-8  rounded-xl">
             {/* Encabezado */}
             <h1 className="text-5xl font-extrabold text-center text-transparent bg-clip-text text-yellow-50 mb-10 mt-11">
                 Buscar Videojuegos

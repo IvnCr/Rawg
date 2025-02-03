@@ -18,65 +18,58 @@ function GameDetailsPage() {
         getGameDetails(id).then(setGame);
     }, [id]);
 
-
     if (!game) return <p className="text-center text-xl">Cargando detalles...</p>;
 
     const description = game.description_raw || "Descripción no disponible.";
     const formattedDescription = convertLinksToHTML(description);
 
     return (
-        <div className="grayPink min-h-screen w-full text-white shadow-outset-yellow rounded-xl z-50">
-            <h2 className="text-3xl font-bold text-center text-white mb-6 mt-10">
+        <div className="grayPink min-h-screen w-full text-white rounded-xl z-50 mt-10 mb-20 flex flex-col items-center px-6">
+            {/* Nombre del juego */}
+            <h2 className="text-3xl font-bold text-center my-6">
                 {game.name || "Detalles del Juego"}
             </h2>
-            <div className="relative px-4 sm:px-8">
-                <div className="flex justify-center items-center flex-col">
-                    {/* Imagen principal del juego */}
-                    <img
-                        src={game.background_image || "https://via.placeholder.com/300x200?text=Imagen+no+disponible"}
-                        alt={game.name}
-                        className="w-full max-w-lg h-96 object-cover mb-6 rounded-lg shadow-2xl"
-                    />
 
-                    {/* Descripción */}
+            {/* Contenedor principal */}
+            <div className="w-full max-w-4xl flex flex-col items-center">
+                {/* Imagen del juego */}
+                <img
+                    src={game.background_image || "https://via.placeholder.com/300x200?text=Imagen+no+disponible"}
+                    alt={game.name}
+                    className="w-screen h-auto object-cover mb-6 rounded-lg shadow-2xl"
+                />
+
+                {/* Descripción */}
+                <div className="w-4/5 text-left mb-6">
+                    <h3 className="text-xl font-semibold mb-2">📜 Descripción:</h3>
                     <div
-                        className="text-white mb-6  px-4 sm:px-8"
+                        className="text-white px-4 sm:px-8"
                         dangerouslySetInnerHTML={{ __html: formattedDescription }}
                     />
+                </div>
 
+                {/* Información del juego */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-3xl text-lg text-center mt-5">
                     {/* Rating */}
-                    <div className="text-center mb-4">
-                        <p className="text-lg">
-                            <strong>⭐ Rating:</strong> {game.rating || "No disponible"}
-                        </p>
+                    <div className="bg-pink-600 shadow-outset-pink p-4 rounded-lg shadow-md hover:text-yellow-100 transition duration-700">
+                        <strong>⭐ Rating:</strong> {game.rating || "No disponible"}
                     </div>
 
                     {/* Plataformas */}
-                    <div className="text-center mb-4">
-                        <p className="text-lg">
-                            <strong>Plataformas: </strong>
-                            {game.platforms?.length > 0 ? (
-                                game.platforms.map((platformObj, index) => (
-                                    <span key={index} className="mr-2">{platformObj.platform.name}{index < game.platforms.length - 1 && ","}</span>
-                                ))
-                            ) : (
-                                "No disponible"
-                            )}
-                        </p>
+                    <div className="bg-pink-600 shadow-outset-pink p-4 rounded-lg shadow-md hover:text-yellow-100 transition duration-700">
+                        <strong>🖥️ Plataformas:</strong> {game.platforms?.length > 0 
+                            ? game.platforms.map((platformObj) => platformObj.platform.name).join(', ') 
+                            : "No disponible"}
                     </div>
 
                     {/* Género */}
-                    <div className="text-center mb-4">
-                        <p className="text-lg">
-                            <strong>Género:</strong> {game.genres?.map(genre => genre.name).join(', ') || "No disponible"}
-                        </p>
+                    <div className="bg-pink-600 shadow-outset-pink p-4 rounded-lg shadow-md hover:text-yellow-100 transition duration-700">
+                        <strong>🎮 Género:</strong> {game.genres?.map(genre => genre.name).join(', ') || "No disponible"}
                     </div>
 
                     {/* Fecha de lanzamiento */}
-                    <div className="text-center mb-6">
-                        <p className="text-lg">
-                            <strong>Fecha de lanzamiento:</strong> {game.released || "No disponible"}
-                        </p>
+                    <div className="bg-pink-600 shadow-outset-pink p-4 rounded-lg shadow-md hover:text-yellow-100 transition duration-700">
+                        <strong>📅 Fecha de lanzamiento:</strong> {game.released || "No disponible"}
                     </div>
                 </div>
             </div>

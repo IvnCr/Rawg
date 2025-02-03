@@ -16,8 +16,8 @@ import "./App.css";
 function App() {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen">
-        <Header />
+      <Header />
+      <div className="min-h-screen flex flex-col w-full rounded-lg grayPink shadow-outset-pink">
         <main className="flex-grow p-4">
           <Routes>
             <Route path="/" element={<HomePage />} />
