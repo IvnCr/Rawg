@@ -16,7 +16,7 @@ const PromotionsPage = () => {
     }, []);
 
     return (
-        <div className="container mx-auto p-8 pb-5 grayPink shadow-outset-yellow">
+        <div className="container mx-auto p-8 pb-5 grayPink">
             <h1 className="text-5xl font-extrabold text-center text-transparent bg-clip-text text-yellow-50 mb-10 mt-11">Ofertas Especiales</h1>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">

@@ -8,11 +8,6 @@ function AllGamesPage() {
     const handleSearch = () => {
         searchGames(query).then(setGames);
     };
-
-    return (
-        <>
-        </>
-    );
 }
 
 export default AllGamesPage;
