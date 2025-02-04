@@ -25,19 +25,19 @@ function GameDetailsPage() {
     const formattedDescription = convertLinksToHTML(description);
 
     return (
-        <div className="grayPink min-h-screen w-full text-white rounded-xl z-50 mt-10 flex flex-col items-center px-6 shadow-outset-pink">
+        <div className="grayPink min-h-screen w-max text-white rounded-xl z-50 mt-10 flex flex-col items-center px-6 shadow-outset-pink">
             {/* Nombre del juego */}
             <h2 className="text-3xl font-bold text-center my-6">
                 {game.name || "Detalles del Juego"}
             </h2>
 
             {/* Contenedor principal */}
-            <div className="w-full max-w-4xl flex flex-col items-center mb-20">
+            <div className="w-screen max-w-4xl flex flex-col items-center mb-20">
                 {/* Imagen del juego */}
                 <img
                     src={game.background_image || "https://via.placeholder.com/300x200?text=Imagen+no+disponible"}
                     alt={game.name}
-                    className="w-full lg:h-96 md:h-96 sm:h-60 object-cover mb-6 rounded-lg shadow-2xl"
+                    className="w-full lg:h-96 md:h-96 sm:h-60 object-cover mb-6 rounded-lg shadow-2xl shadow-outset-pink"
                 />
 
                 {/* Descripción */}
