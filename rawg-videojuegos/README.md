@@ -52,11 +52,10 @@ Si deseas contribuir al proyecto, por favor sigue los siguientes pasos:
 Este proyecto está licenciado bajo la **licencia MIT**. Puedes encontrar más información en el archivo `LICENSE`.
 
 ## Créditos
-- **[Tu nombre]**: creador y mantenedor del proyecto.
-- **[Nombres de contribuyentes]**: contribuyentes al proyecto.
+- **[Ivan Castillejo]**: creador y mantenedor del proyecto.
 
 ## Enlaces
-- [Enlace al sitio web del proyecto]
+- [Enlace al sitio web del proyecto] (https:....)
 - [Enlace al repositorio en GitHub](https://github.com/IvnCr/Rawg)
 - [Enlace a la documentación de la API de RAWG](https://rawg.io/apidocs)
 
