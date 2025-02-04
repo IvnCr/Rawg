@@ -46,6 +46,7 @@ function HomePage() {
 
         return () => clearInterval(interval);
     }, []);
+    
     if (loading) {
         return <div className="text-center text-white text-lg mt-10">Cargando...</div>;
     }
@@ -57,13 +58,14 @@ function HomePage() {
     if (!games.length) {
         return <div className="text-center text-gray-400 text-lg mt-10">No se encontraron videojuegos populares.</div>;
     }
+
     const handleLoadMore = () => {
         setCurrentPage((prevPage) => prevPage + 1);
     };
 
     return (
-        <div className="grayPink min-h-screen  text-white mt-5 rounded-xl z-50 shadow-outset-pink">
-            <div className="relative p-6 text-center ">
+        <div className="grayPink min-h-screen text-white mt-5 rounded-xl z-50 shadow-outset-pink">
+            <div className="relative p-6 text-center">
                 <img
                     src={images[currentImageIndex]}
                     alt="Fondo de juegos"
@@ -71,8 +73,8 @@ function HomePage() {
                 />
 
                 <div className="relative z-10 mt-10">
-                    <h1 className="text-4xl font-bold text-white">Descubre los Mejores Videojuegos</h1>
-                    <p className="text-lg mt-2">Explora y encuentra información detallada sobre los títulos más populares</p>
+                    <h1 className="text-3xl sm:text-4xl font-bold text-white">Descubre los Mejores Videojuegos</h1>
+                    <p className="text-base sm:text-lg mt-2">Explora y encuentra información detallada sobre los títulos más populares</p>
                     <Link to="/search">
                         <Button className="mt-5">
                             Explorar Juegos
@@ -81,15 +83,15 @@ function HomePage() {
                 </div>
             </div>
 
-            <div className="mt-12 ml-5 mr-5 px-6 bg-pink-950 rounded-lg py-8  shadow-inset-yellow">
-                <h2 className="text-3xl font-bold text-center text-white mb-6">
+            <div className="mt-12 ml-5 mr-5 px-6 bg-pink-950 rounded-lg py-8 shadow-inset-yellow">
+                <h2 className="text-2xl sm:text-3xl font-bold text-center text-white mb-6">
                     <FaGamepad className="inline mr-2" /> Juegos Populares
                 </h2>
                 <div className="relative">
-                <div className="flex overflow-x-auto space-x-6  scrollbar-hide p-4 scrollbar-custom">
-                    {/* Tu contenido aquí */}
+                    <div className="flex overflow-x-auto space-x-4 sm:space-x-6 p-4 scrollbar-hide scrollbar-custom">
+                        {/* Tu contenido aquí */}
                         {games.map((game) => (
-                            <div key={game.id} className="w-60 flex-shrink-0 transform transition duration-700 hover:scale-105 hover:shadow-2xl">
+                            <div key={game.id} className="w-52 sm:w-60 flex-shrink-0 transform transition duration-700 hover:scale-105 hover:shadow-2xl">
                                 <Link to={`/games/${game.id}`}>
                                     <div className="bg-pink-900 p-4 rounded-lg shadow-lg shadow-inset-yellow hover:brightness-110">
                                         <img
@@ -97,7 +99,9 @@ function HomePage() {
                                             alt={game.name}
                                             className="rounded-lg w-full h-40 object-cover transition-transform transform"
                                         />
-                                        <h3 className="text-white hover:text-yellow-100 mt-3 text-lg font-semibold truncate overflow-hidden whitespace-nowrap">{game.name || "Juego sin nombre"}</h3>
+                                        <h3 className="text-white hover:text-yellow-100 mt-3 text-base sm:text-lg font-semibold truncate overflow-hidden whitespace-nowrap">
+                                            {game.name || "Juego sin nombre"}
+                                        </h3>
                                         <p className="text-white">⭐ {game.rating || "No disponible"}</p>
                                     </div>
                                 </Link>
@@ -110,11 +114,11 @@ function HomePage() {
             <div className="my-6 mx-5 border-t-8 border-pink-900 rounded shadow-outset-yellow"></div>
 
             <div className="mt-12 ml-5 mr-5 px-6 bg-pink-950 rounded-lg py-8 shadow-inset-yellow">
-                <h2 className="text-3xl font-bold text-center text-white mb-6">🔥 Novedades</h2>
+                <h2 className="text-2xl sm:text-3xl font-bold text-center text-white mb-6">🔥 Novedades</h2>
                 <div className="relative">
-                    <div className="flex overflow-x-auto space-x-6 scrollbar-hide p-4">
+                    <div className="flex overflow-x-auto space-x-4 sm:space-x-6 p-4">
                         {games.slice(0, 3).map((game) => (
-                            <div key={game.id} className="w-64 flex-shrink-0 transform transition duration-700 hover:scale-105">
+                            <div key={game.id} className="w-52 sm:w-64 flex-shrink-0 transform transition duration-700 hover:scale-105">
                                 <Link to={`/games/${game.id}`}>
                                     <div className="bg-pink-900 p-4 rounded-lg shadow-lg shadow-inset-games hover:brightness-110">
                                         <img
@@ -122,7 +126,9 @@ function HomePage() {
                                             alt={game.name}
                                             className="rounded-lg w-full h-40 object-cover"
                                         />
-                                        <h3 className="text-white hover:text-yellow-100 mt-3 text-lg font-semibold truncate overflow-hidden whitespace-nowrap">{game.name || "Juego sin nombre"}</h3>
+                                        <h3 className="text-white hover:text-yellow-100 mt-3 text-base sm:text-lg font-semibold truncate overflow-hidden whitespace-nowrap">
+                                            {game.name || "Juego sin nombre"}
+                                        </h3>
                                         <p className="text-white">⭐ {game.rating || "No disponible"}</p>
                                     </div>
                                 </Link>
@@ -133,7 +139,7 @@ function HomePage() {
             </div>
 
             <div className="bg-pink-600 text-white shadow-outset-yellow py-4 text-center mt-12 ml-5 mr-5 rounded-lg">
-                <p className="text-xl font-bold">¡Gran Oferta! 50% de descuento en juegos seleccionados. ¡No te lo pierdas!</p>
+                <p className="text-lg sm:text-xl font-bold">¡Gran Oferta! 50% de descuento en juegos seleccionados. ¡No te lo pierdas!</p>
                 <Link to="/promotions">
                     <Button className="mt-5">
                         Ver Ofertas <FaArrowRight className="inline ml-2" />

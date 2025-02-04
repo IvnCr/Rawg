@@ -19,8 +19,8 @@ function App() {
     <Router>
       <AnimatedBackground/>
       <Header />
-      <div className="min-h-screen flex flex-col w-full rounded-lg mt-2">
-        <main className="flex-grow p-4">
+      <div className="min-h-screen flex flex-col w-full rounded-lg mt-2 sm:mt-4">
+        <main className="flex-grow p-4 sm:p-6">
           <Routes key={window.location.pathname}>
             <Route path="/" element={<HomePage />} />
             <Route path="/search" element={<SearchPage />} />
@@ -35,6 +35,5 @@ function App() {
     </Router>
   );
 }
-
 
 export default App;
