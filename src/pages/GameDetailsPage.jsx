@@ -37,14 +37,14 @@ function GameDetailsPage() {
                 <img
                     src={game.background_image || "https://via.placeholder.com/300x200?text=Imagen+no+disponible"}
                     alt={game.name}
-                    className="w-screen h-auto object-cover mb-6 rounded-lg shadow-2xl"
+                    className="w-full lg:h-96 md:h-96 sm:h-60 object-cover mb-6 rounded-lg shadow-2xl"
                 />
 
                 {/* Descripción */}
                 <div className="w-4/5 text-left mb-6">
                     <h3 className="text-xl font-semibold mb-2">📜 Descripción:</h3>
                     <div
-                        className="text-white px-4 sm:px-8"
+                        className="text-white px-4 sm:px-8 lg:text-lg md:text-lg sm:text-sm"
                         dangerouslySetInnerHTML={{ __html: formattedDescription }}
                     />
                 </div>
