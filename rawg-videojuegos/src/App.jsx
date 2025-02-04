@@ -11,15 +11,17 @@ import ContactPage from "./pages/ContactPage";
 import AllGamesPage from "./pages/AllGamesPage";
 import GameDetailsPage from "./pages/GameDetailsPage";
 import PromotionPage from "./pages/PromotionPage";
+import AnimatedBackground from "./components/AnimatedBackground";
 import "./App.css";
 
 function App() {
   return (
     <Router>
+      <AnimatedBackground/>
       <Header />
-      <div className="min-h-screen flex flex-col w-full rounded-lg grayPink shadow-outset-pink">
+      <div className="min-h-screen flex flex-col w-full rounded-lg mt-2">
         <main className="flex-grow p-4">
-          <Routes>
+          <Routes key={window.location.pathname}>
             <Route path="/" element={<HomePage />} />
             <Route path="/search" element={<SearchPage />} />
             <Route path="/contact" element={<ContactPage />} />

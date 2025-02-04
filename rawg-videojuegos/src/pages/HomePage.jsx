@@ -25,6 +25,7 @@ function HomePage() {
     const gamesPerPage = 6; // Número de juegos por página
 
     useEffect(() => {
+        window.scrollTo(0,0);
         // Obtener los juegos populares
         getPopularGames(currentPage, gamesPerPage)
             .then((data) => {
@@ -61,12 +62,12 @@ function HomePage() {
     };
 
     return (
-        <div className="grayPink min-h-screen w-full text-white mt-5 rounded-xl z-50">
-            <div className="relative bg-black bg-opacity-60 p-6 rounded-lg text-center ">
+        <div className="grayPink min-h-screen  text-white mt-5 rounded-xl z-50 shadow-outset-pink">
+            <div className="relative p-6 text-center ">
                 <img
                     src={images[currentImageIndex]}
                     alt="Fondo de juegos"
-                    className="absolute top-0 left-0 w-full h-full object-cover opacity-50"
+                    className="absolute top-0 left-0 w-full h-64 object-cover opacity-40"
                 />
 
                 <div className="relative z-10 mt-10">

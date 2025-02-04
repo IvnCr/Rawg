@@ -9,6 +9,10 @@ function ContactPage() {
         message: ''
     });
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     const handleChange = (e) => {
         setFormData({
             ...formData,

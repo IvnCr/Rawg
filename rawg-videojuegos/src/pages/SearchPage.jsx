@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { useEffect } from "react";
 import { searchGames } from "../services/api";
 import { Link } from "react-router-dom";
-import { FaSearch } from "react-icons/fa"; 
+import { FaSearch } from "react-icons/fa";
 import Button from "../components/Button";
 
 function SearchPage() {
@@ -9,6 +10,10 @@ function SearchPage() {
     const [results, setResults] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     const handleSearch = async () => {
         if (!query.trim()) return;
