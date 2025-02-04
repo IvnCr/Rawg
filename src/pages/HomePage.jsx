@@ -64,7 +64,7 @@ function HomePage() {
     };
 
     return (
-        <div className="grayPink min-h-screen text-white mt-5 rounded-xl z-50 shadow-outset-pink">
+        <div className="grayPink min-h-screen text-white rounded-xl z-50 shadow-outset-pink">
             <div className="relative p-6 text-center">
                 <img
                     src={images[currentImageIndex]}
