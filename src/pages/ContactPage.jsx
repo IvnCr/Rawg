@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import Button from "../components/Button";
 
 
@@ -26,7 +27,7 @@ function ContactPage() {
     };
 
     return (
-        <div className="p-6 bg-gradient-to-r shadow-outset-yellow from-[#212121] to-pink-700 rounded-lg shadow-lg max-w-3xl mx-auto mt-10">
+        <div className="p-6 bg-gradient-to-r shadow-outset-pink from-[#212121] to-pink-700 rounded-lg shadow-lg max-w-3xl mx-auto mt-10">
             <h1 className="text-4xl font-extrabold text-white mb-6 text-center">Contacto</h1>
             <p className="text-lg text-white mb-4 text-center">
                 ¿Tienes dudas o sugerencias? ¡Estamos aquí para ayudarte! Escríbenos a{' '}

@@ -32,7 +32,7 @@ function SearchPage() {
     };
 
     return (
-        <div className="min-h-screen grayPink text-white p-8  rounded-xl">
+        <div className="min-h-screen grayPink text-white p-8  rounded-xl shadow-outset-pink">
             {/* Encabezado */}
             <h1 className="text-5xl font-extrabold text-center text-transparent bg-clip-text text-yellow-50 mb-10 mt-11">
                 Buscar Videojuegos
@@ -70,7 +70,7 @@ function SearchPage() {
             )}
 
             {/* Resultados */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-5 ">
                 {results.map((game) => (
                     <div
                         key={game.id}
