@@ -16,14 +16,30 @@
   z-index: -1;
 }
 @media (max-width: 768px) {
-  body {
-    background-color: #242424;
+  .animated-background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: linear-gradient(270deg, #130017, #410041, #130017);
+    background-size: 400% 400%;
+    animation: backgroundAnimation 10s infinite ease-in-out;
+    z-index: -1;
   }
 }
 
 @media (min-width: 320px) {
-  body {
-    background-color: #410041;
+  .animated-background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: linear-gradient(270deg, #130017, #410041, #130017);
+    background-size: 400% 400%;
+    animation: backgroundAnimation 10s infinite ease-in-out;
+    z-index: -1;
   }
 }
 
