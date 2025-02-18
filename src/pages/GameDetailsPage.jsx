@@ -41,13 +41,14 @@ function GameDetailsPage() {
                 />
 
                 {/* Descripción */}
-                <div className="w-4/5 text-left mb-6">
+                <div className="w-full max-w-4/5 text-left mb-6">
                     <h3 className="text-xl font-semibold mb-2">📜 Descripción:</h3>
                     <div
-                        className="text-white px-4 sm:px-8 lg:text-lg md:text-lg sm:text-sm"
+                        className="text-white px-4 sm:px-8 lg:text-lg md:text-lg sm:text-sm max-h-96 overflow-auto"
                         dangerouslySetInnerHTML={{ __html: formattedDescription }}
                     />
                 </div>
+
 
                 {/* Información del juego */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-3xl text-lg text-center mt-5">
@@ -58,8 +59,8 @@ function GameDetailsPage() {
 
                     {/* Publisher */}
                     <div className="bg-pink-600 shadow-outset-pink p-4 rounded-lg shadow-md hover:text-yellow-100 transition duration-700">
-                        <strong>🏢 Publisher:</strong> {game.publishers?.length > 0 
-                            ? game.publishers.map((publisher) => publisher.name).join(', ') 
+                        <strong>🏢 Publisher:</strong> {game.publishers?.length > 0
+                            ? game.publishers.map((publisher) => publisher.name).join(', ')
                             : "No disponible"}
                     </div>
 
@@ -75,25 +76,27 @@ function GameDetailsPage() {
 
                     {/* Plataformas */}
                     <div className="bg-pink-600 shadow-outset-pink p-4 rounded-lg shadow-md hover:text-yellow-100 transition duration-700">
-                        <strong>🖥️ Plataformas:</strong> {game.platforms?.length > 0 
-                            ? game.platforms.map((platformObj) => platformObj.platform.name).join(', ') 
+                        <strong>🖥️ Plataformas:</strong> {game.platforms?.length > 0
+                            ? game.platforms.map((platformObj) => platformObj.platform.name).join(', ')
                             : "No disponible"}
                     </div>
 
                     {/* Tags */}
                     <div className="bg-pink-600 shadow-outset-pink p-4 rounded-lg shadow-md hover:text-yellow-100 transition duration-700">
-                        <strong>🏷️ Tags:</strong> {game.tags?.length > 0 
+                        <strong>🏷️ Tags:</strong>
+                        {game.tags?.length > 0
                             ? game.tags.map((tag) => (
-                                <Link 
-                                    key={tag.id} 
-                                    to={`/games/tag/${tag.slug}`} 
-                                    className="text-blue-400 hover:text-blue-600 mx-1"
+                                <Link
+                                    key={tag.id}
+                                    to={`/games/tag/${tag.slug}`}
+                                    className="text-gray-300 hover:text-yellow-300 ml-2 inline-block"
                                 >
                                     {tag.name}
                                 </Link>
-                            )) 
+                            ))
                             : "No disponible"}
                     </div>
+
                 </div>
             </div>
         </div>
