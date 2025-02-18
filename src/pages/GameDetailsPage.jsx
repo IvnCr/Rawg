@@ -64,9 +64,25 @@ function GameDetailsPage() {
                             : "No disponible"}
                     </div>
 
-                    {/* Género */}
-                    <div className="bg-pink-600 shadow-outset-pink p-4 rounded-lg shadow-md hover:text-yellow-100 transition duration-700">
-                        <strong>🎮 Género:</strong> {game.genres?.map(genre => genre.name).join(', ') || "No disponible"}
+                    {/* Géneros */}
+                    <div className="bg-pink-600 p-4 rounded-lg shadow-md hover:text-yellow-100 transition duration-700 flex items-center justify-center">
+                        <strong className="text-white">🎮</strong>
+                        <span className="text-white font-bold text-center">Géneros:</span>
+                        {game.genres?.length > 0 ? (
+                            <div>
+                                {game.genres.map((genre) => (
+                                    <Link
+                                        key={genre.id}
+                                        to={`/games/genre/${genre.slug}`}
+                                        className="text-gray-300 hover:text-yellow-300 ml-2 inline-block"
+                                    >
+                                        {genre.name}
+                                    </Link>
+                                ))}
+                            </div>
+                        ) : (
+                            "No disponible"
+                        )}
                     </div>
 
                     {/* Fecha de lanzamiento */}
