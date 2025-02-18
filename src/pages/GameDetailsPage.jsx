@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { getGameDetails } from "../services/api";
 
 // Función para convertir enlaces en la descripción
@@ -15,7 +15,7 @@ function GameDetailsPage() {
     const [game, setGame] = useState(null);
 
     useEffect(() => {
-        window.scrollTo(0,0),
+        window.scrollTo(0, 0);
         getGameDetails(id).then(setGame);
     }, [id]);
 
@@ -56,10 +56,10 @@ function GameDetailsPage() {
                         <strong>⭐ Rating:</strong> {game.rating || "No disponible"}
                     </div>
 
-                    {/* Plataformas */}
+                    {/* Publisher */}
                     <div className="bg-pink-600 shadow-outset-pink p-4 rounded-lg shadow-md hover:text-yellow-100 transition duration-700">
-                        <strong>🖥️ Plataformas:</strong> {game.platforms?.length > 0 
-                            ? game.platforms.map((platformObj) => platformObj.platform.name).join(', ') 
+                        <strong>🏢 Publisher:</strong> {game.publishers?.length > 0 
+                            ? game.publishers.map((publisher) => publisher.name).join(', ') 
                             : "No disponible"}
                     </div>
 
@@ -71,6 +71,28 @@ function GameDetailsPage() {
                     {/* Fecha de lanzamiento */}
                     <div className="bg-pink-600 shadow-outset-pink p-4 rounded-lg shadow-md hover:text-yellow-100 transition duration-700">
                         <strong>📅 Fecha de lanzamiento:</strong> {game.released || "No disponible"}
+                    </div>
+
+                    {/* Plataformas */}
+                    <div className="bg-pink-600 shadow-outset-pink p-4 rounded-lg shadow-md hover:text-yellow-100 transition duration-700">
+                        <strong>🖥️ Plataformas:</strong> {game.platforms?.length > 0 
+                            ? game.platforms.map((platformObj) => platformObj.platform.name).join(', ') 
+                            : "No disponible"}
+                    </div>
+
+                    {/* Tags */}
+                    <div className="bg-pink-600 shadow-outset-pink p-4 rounded-lg shadow-md hover:text-yellow-100 transition duration-700">
+                        <strong>🏷️ Tags:</strong> {game.tags?.length > 0 
+                            ? game.tags.map((tag) => (
+                                <Link 
+                                    key={tag.id} 
+                                    to={`/games/tag/${tag.slug}`} 
+                                    className="text-blue-400 hover:text-blue-600 mx-1"
+                                >
+                                    {tag.name}
+                                </Link>
+                            )) 
+                            : "No disponible"}
                     </div>
                 </div>
             </div>

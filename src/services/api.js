@@ -56,3 +56,29 @@ export const getGameDetails = async (gameId) => {
 export const getPromotions = async () => {
     return fetchFromAPI("/games", { ordering: "-metacritic", page_size: 10 });
 };
+
+export const getGamesByGenre = async (genreSlug) => {
+    try {
+        const response = await fetch(`${BASE_URL}/games?genres=${genreSlug}&key=${API_KEY}`);
+        const data = await response.json();
+        return data.results;  // Devuelve los juegos que devuelve la API
+    } catch (error) {
+        console.error('Error al obtener los juegos por género:', error);
+        return [];
+    }
+};
+
+
+
+
+export const getGamesByTag = async (tagSlug) => {
+    try {
+        const response = await fetch(`${BASE_URL}/games?tags=${tagSlug}&key=${API_KEY}`);
+        const data = await response.json();
+        return data.results;  // Devuelve los juegos que devuelve la API
+    } catch (error) {
+        console.error('Error al obtener los juegos por tag:', error);
+        return [];
+    }
+};
+

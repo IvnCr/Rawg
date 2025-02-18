@@ -4,6 +4,7 @@
   100% { background-position: 0% 50%; }
 }
 
+/* Fondo animado base */
 .animated-background {
   position: fixed;
   width: 100vw;
@@ -11,37 +12,32 @@
   top: 0;
   left: 0;
   background: linear-gradient(270deg, #130017, #410041, #130017);
-  background-size: 400% 400%;
+  background-size: 400% 400%; /* Este es el tamaño grande para pantallas grandes */
   animation: backgroundAnimation 10s infinite ease-in-out;
   z-index: -1;
 }
-@media (max-width: 768px) {
+
+/* Para pantallas más grandes, el fondo se mantiene grande */
+@media (min-width: 769px) {
   .animated-background {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    background: linear-gradient(270deg, #130017, #410041, #130017);
     background-size: 400% 400%;
-    animation: backgroundAnimation 10s infinite ease-in-out;
-    z-index: -1;
   }
 }
 
-@media (min-width: 320px) {
+/* Para pantallas medianas */
+@media (max-width: 768px) {
   .animated-background {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    background: linear-gradient(270deg, #130017, #410041, #130017);
-    background-size: 400% 400%;
-    animation: backgroundAnimation 10s infinite ease-in-out;
-    z-index: -1;
+    background-size: 200% 200%; /* Reducir el tamaño para pantallas más pequeñas */
   }
 }
+
+/* Para pantallas pequeñas, reducimos aún más el tamaño del fondo */
+@media (max-width: 480px) {
+  .animated-background {
+    background-size: 150% 150%; /* Reducido para que no se vea cortado */
+  }
+}
+
 
 
 #root {

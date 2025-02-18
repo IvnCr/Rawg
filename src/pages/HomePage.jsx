@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getPopularGames } from "../services/api";
-import PromotionBanner from "../components/PromotionBanner";
 import Button from "../components/Button";
 import { FaGamepad, FaStar, FaArrowRight } from "react-icons/fa";
 
