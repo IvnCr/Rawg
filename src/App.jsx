@@ -14,6 +14,8 @@ import PromotionPage from "./pages/PromotionPage";
 import AnimatedBackground from "./components/AnimatedBackground";
 import GamesByGenrePage from "./pages/GamesByGenrePage";
 import GamesByTagPage from "./pages/GamesByTagPage";
+import PublisherPage from "./pages/PublisherPage";
+import PublishersPage from "./pages/PublishersPage";
 import "./App.css";
 
 function App() {
@@ -32,6 +34,10 @@ function App() {
             <Route path="/promotions" element={<PromotionPage />} />
             <Route path="/games/genre/:slug" element={<GamesByGenrePage />} />
             <Route path="/games/tag/:slug" element={<GamesByTagPage />} />
+            <Route path="/publisher/:slug" element={<PublisherPage />} />
+            <Route path="/publishers" element={<PublishersPage />} />
+            <Route path="/publishers/:slug" element={<PublisherPage />} />
+
           </Routes>
         </main>
         <Footer />

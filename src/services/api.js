@@ -18,6 +18,12 @@ export const fetchFromAPI = async (endpoint, params = {}) => {
     }
 };
 
+export const getGames = async (page = 1) => {
+    const response = await fetch(`https://api.rawg.io/api/games?page=${page}&page_size=20&key=${API_KEY}`);
+    return await response.json();
+};
+
+
 // Función para obtener los juegos populares
 export const getPopularGames = async () => {
     const data = await fetchFromAPI("/games", { ordering: "-rating", page_size: 10 });
@@ -69,8 +75,6 @@ export const getGamesByGenre = async (genreSlug) => {
 };
 
 
-
-
 export const getGamesByTag = async (tagSlug) => {
     try {
         const response = await fetch(`${BASE_URL}/games?tags=${tagSlug}&key=${API_KEY}`);
@@ -82,3 +86,39 @@ export const getGamesByTag = async (tagSlug) => {
     }
 };
 
+// Obtener todos los publishers
+export async function getPublishers(page = 1, pageSize = 40) {
+    try {
+        const response = await fetch(`${BASE_URL}/publishers?key=${API_KEY}&page=${page}&page_size=${pageSize}`);
+        const data = await response.json();
+        return data.results || [];
+    } catch (error) {
+        console.error("Error obteniendo publishers:", error);
+        return [];
+    }
+}
+
+
+// Obtener información detallada de un publisher
+export async function getPublisherInfo(slug) {
+    try {
+        const response = await fetch(`${BASE_URL}/publishers/${slug}?key=${API_KEY}`);
+        const data = await response.json();
+        return data || null;
+    } catch (error) {
+        console.error(`Error obteniendo información del publisher ${slug}:`, error);
+        return null;
+    }
+}
+
+// Obtener juegos de un publisher específico
+export async function getGamesByPublisher(slug) {
+    try {
+        const response = await fetch(`${BASE_URL}/games?publishers=${slug}&key=${API_KEY}`);
+        const data = await response.json();
+        return data.results || []; // Retorna la lista de juegos
+    } catch (error) {
+        console.error(`Error obteniendo juegos del publisher ${slug}:`, error);
+        return [];
+    }
+}

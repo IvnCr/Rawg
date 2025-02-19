@@ -57,12 +57,26 @@ function GameDetailsPage() {
                         <strong>⭐ Rating:</strong> {game.rating || "No disponible"}
                     </div>
 
-                    {/* Publisher */}
-                    <div className="bg-pink-600 shadow-outset-pink p-4 rounded-lg shadow-md hover:text-yellow-100 transition duration-700">
-                        <strong>🏢 Publisher:</strong> {game.publishers?.length > 0
-                            ? game.publishers.map((publisher) => publisher.name).join(', ')
-                            : "No disponible"}
+                    {/* Publishers */}
+                    <div className="bg-pink-600 p-4 rounded-lg shadow-md hover:text-yellow-100 transition duration-700 flex items-center space-x-2">
+                        <strong className="text-white">🏢 Publisher:</strong>
+                        {game.publishers?.length > 0 ? (
+                            <div className="flex flex-wrap gap-2">
+                                {game.publishers.map((publisher) => (
+                                    <Link
+                                        key={publisher.id}
+                                        to={`/publisher/${publisher.slug}`}  // Enlace a la nueva página
+                                        className="text-gray-300 hover:text-yellow-300 ml-2 inline-block"
+                                    >
+                                        {publisher.name}
+                                    </Link>
+                                ))}
+                            </div>
+                        ) : (
+                            "No disponible"
+                        )}
                     </div>
+
 
                     {/* Géneros */}
                     <div className="bg-pink-600 p-4 rounded-lg shadow-md hover:text-yellow-100 transition duration-700 flex items-center justify-center">
