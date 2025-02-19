@@ -49,7 +49,6 @@ function GameDetailsPage() {
                     />
                 </div>
 
-
                 {/* Información del juego */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-3xl text-lg text-center mt-5">
                     {/* Rating */}
@@ -58,15 +57,15 @@ function GameDetailsPage() {
                     </div>
 
                     {/* Publishers */}
-                    <div className="bg-pink-600 p-4 rounded-lg shadow-md hover:text-yellow-100 transition duration-700 flex items-center space-x-2">
-                        <strong className="text-white">🏢 Publisher:</strong>
+                    <div className="bg-pink-600 p-4 rounded-lg shadow-md hover:text-yellow-100 transition duration-700 flex items-center space-x-2 justify-center">
+                        <strong className="text-white mr-1">🏢 Publisher:</strong>
                         {game.publishers?.length > 0 ? (
                             <div className="flex flex-wrap gap-2">
                                 {game.publishers.map((publisher) => (
                                     <Link
                                         key={publisher.id}
                                         to={`/publisher/${publisher.slug}`}  // Enlace a la nueva página
-                                        className="text-gray-300 hover:text-yellow-300 ml-2 inline-block"
+                                        className="text-gray-300 hover:text-yellow-300 inline-block"
                                     >
                                         {publisher.name}
                                     </Link>
@@ -112,7 +111,7 @@ function GameDetailsPage() {
                     </div>
 
                     {/* Tags */}
-                    <div className="bg-pink-600 shadow-outset-pink p-4 rounded-lg shadow-md hover:text-yellow-100 transition duration-700">
+                    <div className="bg-pink-600 shadow-outset-pink p-4 rounded-lg shadow-md hover:text-yellow-100 transition duration-700 justify-start">
                         <strong>🏷️ Tags:</strong>
                         {game.tags?.length > 0
                             ? game.tags.map((tag) => (
