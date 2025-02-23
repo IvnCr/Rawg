@@ -26,14 +26,12 @@ function GameDetailsPage() {
 
     return (
         <div className="grayPink min-h-screen w-max text-white rounded-xl z-50 mt-10 flex flex-col items-center px-6 shadow-outset-pink">
-            {/* Nombre del juego */}
             <h2 className="text-3xl font-bold text-center my-6">
                 {game.name || "Detalles del Juego"}
             </h2>
 
             {/* Contenedor principal */}
             <div className="w-screen max-w-4xl flex flex-col items-center mb-20">
-                {/* Imagen del juego */}
                 <img
                     src={game.background_image || "https://via.placeholder.com/300x200?text=Imagen+no+disponible"}
                     alt={game.name}
@@ -49,14 +47,11 @@ function GameDetailsPage() {
                     />
                 </div>
 
-                {/* Información del juego */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-3xl text-lg text-center mt-5">
-                    {/* Rating */}
                     <div className="bg-pink-600 shadow-outset-pink p-4 rounded-lg shadow-md hover:text-yellow-100 transition duration-700">
                         <strong>⭐ Rating:</strong> {game.rating || "No disponible"}
                     </div>
 
-                    {/* Publishers */}
                     <div className="bg-pink-600 p-4 rounded-lg shadow-md hover:text-yellow-100 transition duration-700 flex items-center space-x-2 justify-center">
                         <strong className="text-white mr-1">🏢 Publisher:</strong>
                         {game.publishers?.length > 0 ? (
@@ -64,8 +59,8 @@ function GameDetailsPage() {
                                 {game.publishers.map((publisher) => (
                                     <Link
                                         key={publisher.id}
-                                        to={`/publisher/${publisher.slug}`}  // Enlace a la nueva página
-                                        className="text-gray-300 hover:text-yellow-300 inline-block"
+                                        to={`/publisher/${publisher.slug}`}
+                                        className="text-gray-300 hover:text-yellow-200 transition duration-500 inline-block"
                                     >
                                         {publisher.name}
                                     </Link>
@@ -76,27 +71,26 @@ function GameDetailsPage() {
                         )}
                     </div>
 
-
                     {/* Géneros */}
-                    <div className="bg-pink-600 p-4 rounded-lg shadow-md hover:text-yellow-100 transition duration-700 flex items-center justify-center">
-                        <strong className="text-white">🎮</strong>
-                        <span className="text-white font-bold text-center">Géneros:</span>
+                    <div className="bg-pink-600 shadow-outset-pink p-4 rounded-lg shadow-md hover:text-yellow-100 transition duration-700 justify-start inline-block">
+                        <strong>🎮 Géneros: </strong>
                         {game.genres?.length > 0 ? (
-                            <div>
-                                {game.genres.map((genre) => (
-                                    <Link
-                                        key={genre.id}
-                                        to={`/games/genre/${genre.slug}`}
-                                        className="text-gray-300 hover:text-yellow-300 ml-2 inline-block"
-                                    >
-                                        {genre.name}
-                                    </Link>
-                                ))}
-                            </div>
+                            game.genres.map((genre) => (
+                                <Link
+                                    key={genre.id}
+                                    to={`/games/genre/${genre.slug}`}
+                                    className="text-gray-300 hover:text-yellow-200 transition duration-500 ml-2 inline-block"
+                                >
+                                    {genre.name}
+                                </Link>
+                            ))
                         ) : (
-                            "No disponible"
+                            <span className="ml-2">No disponible</span>
                         )}
                     </div>
+
+
+
 
                     {/* Fecha de lanzamiento */}
                     <div className="bg-pink-600 shadow-outset-pink p-4 rounded-lg shadow-md hover:text-yellow-100 transition duration-700">
@@ -118,14 +112,15 @@ function GameDetailsPage() {
                                 <Link
                                     key={tag.id}
                                     to={`/games/tag/${tag.slug}`}
-                                    className="text-gray-300 hover:text-yellow-300 ml-2 inline-block"
+                                    className="text-gray-300 hover:text-yellow-200 transition duration-500 ml-2 inline-block"
                                 >
                                     {tag.name}
                                 </Link>
                             ))
-                            : "No disponible"}
+                            : (
+                                <span className="ml-2">No disponible</span>
+                            )}
                     </div>
-
                 </div>
             </div>
         </div>

@@ -15,7 +15,7 @@ function AllGamesPage() {
     const fetchGames = async (page) => {
         try {
             const data = await getGames(page);
-            setGames(data.results);  // Asegúrate de que `data.results` contiene los juegos
+            setGames(data.results);
             setTotalPages(data.count ? Math.ceil(data.count / 20) : 1); // 20 juegos por página
         } catch (error) {
             console.error("Error cargando juegos:", error);
@@ -33,10 +33,10 @@ function AllGamesPage() {
                 {games.map((game) => (
                     <div key={game.id} className="bg-pink-900 rounded-lg shadow-lg overflow-hidden hover:scale-105 hover:brightness-105 transition duration-300 shadow-inset-yellow">
                         <Link to={`/games/${game.id}`}>
-                        <img src={game.background_image} alt={game.name} className="w-full h-48 object-cover" />
-                        <div className="p-4 text-center">
-                            <h3 className="text-white text-lg font-semibold truncate">{game.name}</h3>
-                        </div>
+                            <img src={game.background_image} alt={game.name} className="w-full h-48 object-cover" />
+                            <div className="p-4 text-center">
+                                <h3 className="text-white text-lg font-semibold truncate">{game.name}</h3>
+                            </div>
                         </Link>
                     </div>
                 ))}
