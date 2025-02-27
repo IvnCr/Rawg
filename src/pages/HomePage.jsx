@@ -3,7 +3,16 @@ import { Link } from "react-router-dom";
 import { getPopularGames } from "../services/api";
 import Button from "../components/Button";
 import { FaGamepad, FaStar, FaArrowRight } from "react-icons/fa";
+/**
+ * @file HomePage.js
+ * @brief Componente de la página de inicio
+ * @description Muestra la lista de juegos populares y permite buscar juegos
+ */
 
+/**
+ * @brief Función que devuelve el componente de la página de inicio
+ * @return {JSX.Element} El componente de la página de inicio
+ */
 function HomePage() {
     const [games, setGames] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -22,6 +31,11 @@ function HomePage() {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);  // Aquí se agrega el estado
 
     const gamesPerPage = 6; // Número de juegos por página
+    
+    /**
+     * @brief Efecto que se ejecuta cuando se monta el componente
+     * @description Obtiene la lista de juegos populares y la página actual
+     */
 
     useEffect(() => {
         window.scrollTo(0,0);
@@ -38,6 +52,10 @@ function HomePage() {
             });
     }, [currentPage]);
 
+    /**
+     * @brief Efecto que se ejecuta cada 4 segundos para cambiar la imagen de fondo
+     */
+
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -46,14 +64,17 @@ function HomePage() {
         return () => clearInterval(interval);
     }, []);
     
+    // Código que se ejecuta si se está cargando la lista de juegos
     if (loading) {
         return <div className="text-center text-white text-lg mt-10">Cargando...</div>;
     }
 
+    // Código que se ejecuta si se produjo un error al cargar la lista de juegos
     if (error) {
         return <div className="text-center text-red-500 text-lg mt-10">{error}</div>;
     }
 
+    // Código que se ejecuta si no se encontraron juegos populares
     if (!games.length) {
         return <div className="text-center text-gray-400 text-lg mt-10">No se encontraron videojuegos populares.</div>;
     }
@@ -62,15 +83,17 @@ function HomePage() {
         setCurrentPage((prevPage) => prevPage + 1);
     };
 
+    // Código que se ejecuta para renderizar la lista de juegos populares
     return (
         <div className="grayPink min-h-screen text-white rounded-xl z-50 shadow-outset-pink">
+            {/* Código que se ejecuta para renderizar la imagen de fondo */}
             <div className="relative p-6 text-center">
                 <img
                     src={images[currentImageIndex]}
                     alt="Fondo de juegos"
                     className="absolute top-0 left-0 w-full h-64 object-cover opacity-40"
                 />
-
+                {/* Código que se ejecuta para renderizar el título y el botón "Explorar juegos" */}
                 <div className="relative z-10 mt-10">
                     <h1 className="text-3xl sm:text-4xl font-bold text-white">Descubre los Mejores Videojuegos</h1>
                     <p className="text-base sm:text-lg mt-2">Explora y encuentra información detallada sobre los títulos más populares</p>
@@ -82,13 +105,14 @@ function HomePage() {
                 </div>
             </div>
 
+            {/* Código que se ejecuta para renderizar la lista de juegos populares */}
             <div className="mt-12 ml-5 mr-5 px-6 bg-pink-950 rounded-lg py-8 shadow-inset-yellow">
                 <h2 className="text-2xl sm:text-3xl font-bold text-center text-white mb-6">
                     <FaGamepad className="inline mr-2" /> Juegos Populares
                 </h2>
                 <div className="relative">
                     <div className="flex overflow-x-auto space-x-4 sm:space-x-6 p-4 scrollbar-hide scrollbar-custom">
-                        {/* Tu contenido aquí */}
+                        {/* Código que se ejecuta para renderizar cada juego popular */}
                         {games.map((game) => (
                             <div key={game.id} className="w-52 sm:w-60 flex-shrink-0 transform transition duration-700 hover:scale-105 hover:shadow-2xl">
                                 <Link to={`/games/${game.id}`}>
@@ -146,6 +170,7 @@ function HomePage() {
                 </Link>
             </div>
 
+            {/* Código que se ejecuta para renderizar el botón "Cargar más juegos" */}
             <div className="text-center mt-12">
                 <Button className="mb-8" onClick={handleLoadMore}>Cargar Más Juegos</Button>
             </div>
