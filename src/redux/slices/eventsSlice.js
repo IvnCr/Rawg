@@ -16,11 +16,14 @@ const eventsSlice = createSlice({
     },
     reducers: {
         joinEvent: (state, action) => {
-            state.userEvents.push(action.payload);
-            localStorage.setItem("userEvents", JSON.stringify(state.userEvents));
+            // Verificar si el evento ya está en la lista de eventos del usuario
+            if (!state.userEvents.find((event) => event.id === action.payload.id)) {
+                state.userEvents.push(action.payload);
+                localStorage.setItem("userEvents", JSON.stringify(state.userEvents));
+            }
         },
         leaveEvent: (state, action) => {
-            state.userEvents = state.userEvents.filter((id) => id !== action.payload);
+            state.userEvents = state.userEvents.filter((event) => event.id !== action.payload);
             localStorage.setItem("userEvents", JSON.stringify(state.userEvents));
         },
     },

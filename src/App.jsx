@@ -16,6 +16,7 @@ import GamesByGenrePage from "./pages/GamesByGenrePage";
 import GamesByTagPage from "./pages/GamesByTagPage";
 import PublisherPage from "./pages/PublisherPage";
 import PublishersPage from "./pages/PublishersPage";
+import EventsPage from "./pages/EventsPage";
 import "./App.css";
 
 function App() {
@@ -37,7 +38,7 @@ function App() {
             <Route path="/publisher/:slug" element={<PublisherPage />} />
             <Route path="/publishers" element={<PublishersPage />} />
             <Route path="/publishers/:slug" element={<PublisherPage />} />
-
+            <Route path="/events" element={<EventsPage/>}/>
           </Routes>
         </main>
         <Footer />

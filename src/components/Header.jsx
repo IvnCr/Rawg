@@ -27,6 +27,8 @@ function Header() {
                         { path: "/contact", label: "CONTACTO" },
                         { path: "/games" , label: "JUEGOS" },
                         { path: "/publishers", label: "PUBLISHERS" },
+                        { path: "/events", label: "EVENTOS" },
+
                     ].map((item, index) => (
                         <Link
                             key={index}
@@ -105,6 +107,15 @@ function Header() {
                                 onClick={() => setMenuOpen(false)}
                             >
                                 PUBLISHERS
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                to="/events"
+                                className="text-white hover:underline hover:text-[#3498db] transition"
+                                onClick={() => setMenuOpen(false)}
+                            >
+                                EVENTOS
                             </Link>
                         </li>
                     </ul>
