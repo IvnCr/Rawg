@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import { getPopularGames } from "../services/api";
 import Button from "../components/Button";
 import { FaGamepad, FaStar, FaArrowRight } from "react-icons/fa";
+import { fetchGamesThunk } from "../redux/slices/gamesSlice"; // Importamos la acción para obtener juegos
+import { useDispatch, useSelector } from "react-redux";
+
+
 /**
  * @file HomePage.js
  * @brief Componente de la página de inicio
@@ -14,9 +18,8 @@ import { FaGamepad, FaStar, FaArrowRight } from "react-icons/fa";
  * @return {JSX.Element} El componente de la página de inicio
  */
 function HomePage() {
-    const [games, setGames] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const dispatch = useDispatch();
+    const { games, loading, error } = useSelector((state) => state.games); // Usamos Redux
     const [currentPage, setCurrentPage] = useState(1);
 
     // Arreglo de imágenes para el fondo
@@ -38,19 +41,9 @@ function HomePage() {
      */
 
     useEffect(() => {
-        window.scrollTo(0,0);
-        // Obtener los juegos populares
-        getPopularGames(currentPage, gamesPerPage)
-            .then((data) => {
-                setGames(data);
-                setLoading(false);
-            })
-            .catch((error) => {
-                console.error("Error al obtener los juegos:", error);
-                setError("No se pudieron cargar los juegos.");
-                setLoading(false);
-            });
-    }, [currentPage]);
+        window.scrollTo(0, 0);
+        dispatch(fetchGamesThunk({ currentPage, gamesPerPage }));
+    }, [dispatch, currentPage]);
 
     /**
      * @brief Efecto que se ejecuta cada 4 segundos para cambiar la imagen de fondo
