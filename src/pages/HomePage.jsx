@@ -88,7 +88,7 @@ function HomePage() {
                 />
                 {/* Código que se ejecuta para renderizar el título y el botón "Explorar juegos" */}
                 <div className="relative z-10 mt-10">
-                    <h1 className="text-3xl sm:text-4xl font-bold text-white">Descubre los Mejores Videojuegos</h1>
+                    <h1 className="text-3xl sm:text-4xl font-bold text-white">Descubre las Mejores Vergas</h1>
                     <p className="text-base sm:text-lg mt-2">Explora y encuentra información detallada sobre los títulos más populares</p>
                     <Link to="/search">
                         <Button className="mt-5">
