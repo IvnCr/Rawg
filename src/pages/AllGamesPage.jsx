@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getGames } from "../services/api";
 import { Link } from "react-router-dom";
+import Button from "../components/Button";
 
 
 function AllGamesPage() {
@@ -43,26 +44,32 @@ function AllGamesPage() {
             </div>
 
             {/* Paginación */}
-            <div className="flex justify-center mt-8 space-x-4">
-                <button
+            <div className="flex items-center justify-center mt-8 space-x-4">
+                <Button
                     disabled={currentPage === 1}
                     onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-                    className={`px-4 py-2 rounded-lg ${currentPage === 1 ? "bg-gray-600 cursor-not-allowed" : "bg-pink-700 hover:bg-pink-800 text-white"}`}
+                    className={`flex items-center px-4 py-2 rounded-lg ${currentPage === 1 ? "bg-gray-600 cursor-not-allowed" : "bg-pink-700 hover:bg-pink-800 text-white"}`}
                 >
-                    ← Anterior
-                </button>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#db2777">
+                        <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+                    </svg>
+                    <span>Anterior</span>
+                </Button>
 
                 <span className="text-yellow-100 font-bold text-xl">
                     Página {currentPage} de {totalPages}
                 </span>
 
-                <button
+                <Button
                     disabled={currentPage === totalPages}
                     onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-                    className={`px-4 py-2 rounded-lg ${currentPage === totalPages ? "bg-gray-600 cursor-not-allowed" : "bg-pink-700 hover:bg-pink-800 text-white"}`}
+                    className={`flex items-center px-4 py-2 rounded-lg ${currentPage === totalPages ? "bg-gray-600 cursor-not-allowed" : "bg-pink-700 hover:bg-pink-800 text-pink-600"}`}
                 >
-                    Siguiente →
-                </button>
+                    <span>Siguiente</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#db2777 ">
+                        <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z" />
+                    </svg>
+                </Button>
             </div>
         </div>
     );

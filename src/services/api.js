@@ -145,7 +145,7 @@ export const getGamesByTag = async (tagSlug) => {
  * @param {number} pageSize - El tamaño de la página (opcional, por defecto es 40)
  * @returns {Promise<object>} Un objeto con la lista de editores
  */
-export async function getPublishers(page = 1, pageSize = 40) {
+export async function getPublishers(page = 1, pageSize = 300) {
     try {
         const response = await fetch(`${BASE_URL}/publishers?key=${API_KEY}&page=${page}&page_size=${pageSize}`);
         const data = await response.json();
