@@ -48,10 +48,11 @@ function EventsPage() {
                             <p>{event.location}</p>
                             <Button
                                 onClick={() => handleToggleEvent(event)}
-                                className={`mt-4 ${isUserEvent ? 'bg-red-600 text-white border border-white' : 'bg-green-700 text-white border border-white'}`}
+                                className={`mt-4 ${isUserEvent ? 'bg-red-500 text-white border border-white' : 'bg-green-600 text-white border  border-white'}`}
                             >
                                 {isUserEvent ? 'Cancelar participación' : 'Apuntarme'}
                             </Button>
+
                         </div>
                     );
                 })}
