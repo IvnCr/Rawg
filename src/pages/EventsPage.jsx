@@ -1,8 +1,6 @@
-// components/EventsPage.js
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getEvents, joinEvent, leaveEvent } from '../redux/slices/eventsSlice';
-import Button from '../components/Button';
 
 function EventsPage() {
     const dispatch = useDispatch();
@@ -46,12 +44,12 @@ function EventsPage() {
                             />
                             <h2 className="text-xl font-semibold">{event.title}</h2>
                             <p>{event.location}</p>
-                            <Button
+                            <button
                                 onClick={() => handleToggleEvent(event)}
-                                className={`mt-4 ${isUserEvent ? 'bg-red-500 text-white border border-white' : 'bg-green-600 text-white border  border-white'}`}
+                                className={`mt-4 ${isUserEvent ? 'bg-red-500 text-white border border-white hover:bg-red-800 transition duration-700 hover:brightness-90 hover:border-white' : 'bg-green-600 text-white border border-white hover:bg-green-800 transition duration-700 hover:brightness-90 hover:border-white '}`}
                             >
                                 {isUserEvent ? 'Cancelar participación' : 'Apuntarme'}
-                            </Button>
+                            </button>
 
                         </div>
                     );
